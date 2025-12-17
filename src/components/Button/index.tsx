@@ -1,7 +1,11 @@
+import { ButtonHTMLAttributes } from "react";
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 
-export default function Button() {
+export default function Button({ children, ...rest }: ButtonProps) {
   return (
-    <button className="button" type="submit">Entrar</button>
+    <button className="button" {...rest}>
+      {children ?? "Enviar"}
+    </button>
   )
 }

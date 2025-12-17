@@ -1,7 +1,10 @@
 import { InputTypes } from "./types"
+import React, { forwardRef } from "react"
 
-export default function Input({ placeholder, type }: InputTypes) {
+function Input({ placeholder, type, ...rest }: InputTypes, ref: React.Ref<HTMLInputElement>) {
   return (
-    <input className="input" type={type} placeholder={placeholder}/>
+    <input ref={ref} className="input" type={type} placeholder={placeholder} {...rest}/>
   )
 }
+
+export default forwardRef(Input);
